@@ -10,59 +10,54 @@ REM Répertoire racine du script
 set SCRIPT_DIR=%~dp0
 cd %SCRIPT_DIR%
 
-REM Configuration - MODIFIEZ CES CHEMINS SELON VOTRE ENVIRONNEMENT
 setlocal enabledelayedexpansion
-
-REM Chemins par défaut (à adapter)
-set "DEV_PATH_D=D:\dev"
-set "WORKGROUP_PATH=\\serveur\workgroup_maya"
 
 echo.
 echo Creation des junctions dans tools-local\
 echo.
 
-REM Blender Fork
-if exist "%DEV_PATH_D%\blender-fork" (
-    echo [OK] blender-fork trouve
-    if not exist "tools-local\blender-fork" mklink /J "tools-local\blender-fork" "%DEV_PATH_D%\blender-fork"
-) else (
-    echo [ATTENTION] blender-fork non trouve dans %DEV_PATH_D%
-)
-
-REM Unreal Fork
-if exist "%DEV_PATH_D%\unreal-fork" (
-    echo [OK] unreal-fork trouve
-    if not exist "tools-local\unreal-fork" mklink /J "tools-local\unreal-fork" "%DEV_PATH_D%\unreal-fork"
-) else (
-    echo [ATTENTION] unreal-fork non trouve dans %DEV_PATH_D%
-)
-
-REM Maya Scripts
-if exist "%DEV_PATH_D%\maya-scripts" (
-    echo [OK] maya-scripts trouve
-    if not exist "tools-local\maya-scripts" mklink /J "tools-local\maya-scripts" "%DEV_PATH_D%\maya-scripts"
-) else (
-    echo [ATTENTION] maya-scripts non trouve dans %DEV_PATH_D%
-)
-
-REM Outils USD
-if exist "%DEV_PATH_D%\usd-tools" (
-    echo [OK] usd-tools trouve
-    if not exist "tools-local\usd-tools" mklink /J "tools-local\usd-tools" "%DEV_PATH_D%\usd-tools"
-) else (
-    echo [ATTENTION] usd-tools non trouve dans %DEV_PATH_D%
-)
-
-REM Workgroup Network
-if exist "%WORKGROUP_PATH%" (
-    echo [OK] workgroup_maya reseau trouve
-    if not exist "tools-local\workgroup_maya" mklink /J "tools-local\workgroup_maya" "%WORKGROUP_PATH%"
-) else (
-    echo [ATTENTION] workgroup_maya non trouve: %WORKGROUP_PATH%
-)
-
 REM Créer le repertoire tools-local si inexistant
 if not exist "tools-local" mkdir tools-local
+
+REM Deploy
+if exist "D:\_DEPLOY" (
+    echo [OK] Deploy trouve
+    if not exist "tools-local\Deploy" mklink /J "tools-local\Deploy" "D:\_DEPLOY"
+) else (
+    echo [ATTENTION] Deploy non trouve: D:\_DEPLOY
+)
+
+REM Blender
+if exist "D:\Blender" (
+    echo [OK] Blender trouve
+    if not exist "tools-local\Blender" mklink /J "tools-local\Blender" "D:\Blender"
+) else (
+    echo [ATTENTION] Blender non trouve: D:\Blender
+)
+
+REM UnrealEngine
+if exist "D:\EpicGames\UnrealEngine" (
+    echo [OK] UnrealEngine trouve
+    if not exist "tools-local\UnrealEngine" mklink /J "tools-local\UnrealEngine" "D:\EpicGames\UnrealEngine"
+) else (
+    echo [ATTENTION] UnrealEngine non trouve: D:\EpicGames\UnrealEngine
+)
+
+REM OpenRV
+if exist "D:\OpenRV" (
+    echo [OK] OpenRV trouve
+    if not exist "tools-local\OpenRV" mklink /J "tools-local\OpenRV" "D:\OpenRV"
+) else (
+    echo [ATTENTION] OpenRV non trouve: D:\OpenRV
+)
+
+REM HandBrake
+if exist "D:\HandBrake" (
+    echo [OK] HandBrake trouve
+    if not exist "tools-local\HandBrake" mklink /J "tools-local\HandBrake" "D:\HandBrake"
+) else (
+    echo [ATTENTION] HandBrake non trouve: D:\HandBrake
+)
 
 echo.
 echo ============================================
@@ -70,6 +65,14 @@ echo Junction setup termine !
 echo ============================================
 echo.
 echo Les liens sont maintenant disponibles dans tools-local\
-echo Ils pointent vers vos repertoires de dev locaux.
+echo.
+echo Liste des junctions creees:
+echo   Deploy        -> D:\_DEPLOY
+echo   Blender       -> D:\Blender
+echo   UnrealEngine  -> D:\EpicGames\UnrealEngine
+echo   OpenRV        -> D:\OpenRV
+echo   HandBrake     -> D:\HandBrake
+echo.
+echo Les Workgroups sont geres par les submodules (R:\)
 echo.
 pause
