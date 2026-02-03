@@ -1,0 +1,22 @@
+; Configuration Submodules - Pagecran Pipeline
+; À compléter avec les vrais chemins
+
+[submodule "submodules/maya-tools"]
+    path = submodules/maya-tools
+    url = https://github.com/Pagecran/maya-tools.git
+
+[submodule "submodules/blender-fork"]
+    path = submodules/blender-fork
+    url = https://github.com/Pagecran/blender-fork.git
+
+[submodule "submodules/unreal-fork"]
+    path = submodules/unreal-fork
+    url = https://github.com/Pagecran/unreal-fork.git
+
+[submodule "submodules/usd-core"]
+    path = submodules/usd-core
+    url = https://github.com/Pagecran/usd-core.git
+
+[submodule "submodules/workgroup_maya"]
+    path = submodules/workgroup_maya
+    url = https://github.com/Pagecran/workgroup_maya.git
