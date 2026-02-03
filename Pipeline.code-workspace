@@ -1,0 +1,21 @@
+{
+  "folders": [
+    { "name": "Pipeline", "path": "." },
+    { "name": "Workgroup_Blender", "path": "R:/Workgroup_Blender" },
+    { "name": "Workgroup_Maya", "path": "R:/Workgroup_Maya" },
+    { "name": "Workgroup_Unreal", "path": "R:/Workgroup_Unreal" },
+    { "name": "Workgroup_Nuke", "path": "R:/Workgroup_Nuke" },
+    { "name": "kit-app-template", "path": "D:/NVIDIA-Omniverse/kit-app-template" },
+    { "name": "Deploy", "path": "D:/_DEPLOY" },
+    { "name": "OpenRV", "path": "D:/OpenRV" },
+    { "name": "HandBrake", "path": "D:/HandBrake" },
+    { "name": "UnrealEngine", "path": "D:/EpicGames/UnrealEngine" },
+    { "name": "Blender", "path": "D:/Blender" }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": false,
+      "**/node_modules": true
+    }
+  }
+}
