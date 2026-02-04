@@ -38,6 +38,9 @@ Desktop.ini
 # Local junctions - ne pas versionner
 tools-local/
 
+# Symlinks vers les repos externes (chaque repo a son propre Git)
+repos/
+
 # Fichiers temporaires
 *.bak
 *.backup
